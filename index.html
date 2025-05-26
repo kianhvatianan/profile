@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>Kiannara</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+  
+<style>
+    body {
+        background-color: white;
+        background-image: 
+            repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 2px, transparent 60px),
+            repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 2px, transparent 1px, transparent 60px);
+    }
+
+</style>
+
+<body class="relative min-h-screen overflow-x-hidden">
+
+  <!-- Konten Utama -->
+  <div class="p-4 max-w-5xl mx-auto">
+    <div class="flex justify-between items-center">
+        <h1 class="font-semibold text-6xl">Kiann.</h1>
+        <div class="flex space-x-1 mt-2">
+            <div class="w-10 h-10 bg-gray-600"></div>
+            <div class="w-10 h-10 bg-gray-600"></div>
+            <div class="w-10 h-10 bg-gray-600"></div>
+            <div class="w-10 h-10 bg-gray-600"></div>
+            <div class="w-10 h-10 bg-gray-600"></div>
+        </div>
+    </div>
+
+    <p class="mt-48 text-6xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+    <div class="flex items-start mt-20 gap-4">
+      <img src="assets/image/photo.png" alt="Image" class="w-64 h-64 object-cover rounded-md" />
+      <div class="ml-12">
+          <p class="text-6xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="about.html"><button class="mt-8 text-xl p-2 px-4 border border-black rounded-xl">ABOOOUUTT MEE</button></a>
+      </div>
+    </div>
+
+    <!-- project list -->
+    <div class="mt-20 max-w-5xl">
+      <a href="#">
+        <img src="assets/image/project-placeholder.png" alt="project" class="w-[100%] h-auto rounded-md mb-20">
+      </a>
+
+      <a href="#">
+        <img src="assets/image/project-placeholder.png" alt="project" class="w-[100%] h-auto rounded-md mb-20">
+      </a>
+
+      <a href="#">
+        <img src="assets/image/project-placeholder.png" alt="project" class="w-[100%] h-auto rounded-md mb-20">
+      </a>
+
+      <a href="#">
+        <img src="assets/image/project-placeholder.png" alt="project" class="w-[100%] h-auto rounded-md mb-20">
+      </a>
+      
+    </div>
+
+    <p class="mt-6 font-semibold text-6xl">KIANNARA.</p>
+
+    <div class="flex space-x-1 mt-2">
+      <div class="w-12 h-12 bg-gray-400"></div>
+      <div class="w-12 h-12 bg-gray-400"></div>
+      <div class="w-12 h-12 bg-gray-400"></div>
+      <div class="w-12 h-12 bg-gray-400"></div>
+      <div class="w-12 h-12 bg-gray-400"></div>
+    </div>
+
+    <p class="mt-20 text-6xl">2025</p>
+  </div>
+
+
+    <!-- Polygon Decorations -->
+    <div id="polygon-decorations" class="pointer-events-none fixed top-0 left-0 w-full h-full z-[-1] overflow-hidden"></div>
+
+    <script>
+    const container = document.getElementById('polygon-decorations');
+
+    const colors = ['#cbd5e1', '#94a3b8', '#64748b', '#475569']; // Tailwind slate palette
+    const shapes = ['triangle', 'hexagon', 'parallelogram'];
+    const numPolygons = 50;
+
+    function createPolygon(shape, color, size, top, left, rotate) {
+        const div = document.createElement('div');
+        div.classList.add('absolute');
+        div.style.width = size + 'px';
+        div.style.height = size + 'px';
+        div.style.top = top + '%';
+        div.style.left = left + '%';
+        div.style.transform = `rotate(${rotate}deg)`;
+        div.style.backgroundColor = color;
+        div.style.opacity = '0.08';
+        
+        if (shape === 'triangle') {
+        div.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+        } else if (shape === 'hexagon') {
+        div.style.clipPath = 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)';
+        } else if (shape === 'parallelogram') {
+        div.style.clipPath = 'polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)';
+        }
+
+        container.appendChild(div);
+    }
+
+    for (let i = 0; i < numPolygons; i++) {
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const size = Math.random() * 100 + 30; // between 30px - 130px
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        const rotate = Math.random() * 360;
+
+        createPolygon(shape, color, size, top, left, rotate);
+    }
+    </script>
+
+</body>
+</html>
