@@ -7,23 +7,40 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-  
-<style>
-    body {
-        background-color: white;
-        background-image: 
-            repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 2px, transparent 60px),
-            repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 2px, transparent 1px, transparent 60px);
-    }
 
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'media'
+  }
+</script>
+
+<style>
+  body {
+    @apply bg-white dark:bg-gray-900;
+    background-color: white;
+    background-image: 
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 2px, transparent 60px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 2px, transparent 1px, transparent 60px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #191a1d; /* slate-900 */
+      background-image: 
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 2px, transparent 60px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 1px, transparent 60px);
+    }
+  }
 </style>
+
 
 <body class="relative min-h-screen overflow-x-hidden">
 
   <!-- Konten Utama -->
   <div class="p-4 max-w-5xl mx-auto">
     <div class="flex justify-between items-center">
-        <h1 class="font-semibold text-6xl">Kiannara.</h1>
+        <h1 class="font-semibold text-6xl dark:text-gray-300">Kiannara.</h1>
         <div class="flex space-x-1">
             <div class="w-12 h-12 bg-gray-100"></div>
             <div class="w-12 h-12 bg-gray-200"></div>
@@ -33,15 +50,15 @@
         </div>
     </div>
 
-    <p class="mt-[320px] text-7xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p class="mt-[320px] text-7xl dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
     <div class="flex items-start mt-20 gap-4">
       <img src="assets/image/photo.png" alt="Image" class="w-64 h-64 object-cover rounded-md" />
       <div class="ml-12">
-          <p class="text-6xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <a href="https://github.com/kianhvatianan"><button class="mt-8 text-xl p-2 px-4 mr-2 border border-black rounded-full"><i class="uil uil-github"></i> kianhvatianan</button></a>
-          <a href="https://www.instagram.com/kiiaannhvaa/"><button class="mt-8 text-xl p-2 px-4 mr-2 border border-black rounded-full"><i class="uil uil-instagram-alt"></i> kiiaannhvaa</button></a>
-          <a href="https://www.linkedin.com/in/kianhvatianan/"><button class="mt-8 text-xl p-2 px-4 mr-2 border border-black rounded-full"><i class="uil uil-linkedin"></i> in/kianhvatianan</button></a>
+          <p class="text-6xl dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="https://github.com/kianhvatianan"><button class="mt-8 text-xl p-2 px-4 mr-2 border border-black rounded-full dark:text-gray-300 dark:border-gray-300"><i class="uil uil-github"></i> kianhvatianan</button></a>
+          <a href="https://www.instagram.com/kiiaannhvaa/"><button class="mt-8 text-xl p-2 px-4 mr-2 border border-black rounded-full dark:text-gray-300 dark:border-gray-300"><i class="uil uil-instagram-alt"></i> kiiaannhvaa</button></a>
+          <a href="https://www.linkedin.com/in/kianhvatianan/"><button class="mt-8 text-xl p-2 px-4 mr-2 border border-black rounded-full dark:text-gray-300 dark:border-gray-300"><i class="uil uil-linkedin"></i> in/kianhvatianan</button></a>
       </div>
     </div>
 
@@ -75,7 +92,7 @@
       
     </div>
 
-    <p class="mt-6 font-semibold text-6xl">KIANNARA.</p>
+    <p class="mt-6 font-semibold text-6xl dark:text-gray-300">KIANNARA.</p>
 
     <div class="flex space-x-1 mt-2">
         <div class="w-12 h-12 bg-gray-500"></div>
@@ -85,7 +102,7 @@
         <div class="w-12 h-12 bg-gray-100"></div>
     </div>
 
-    <p class="mt-20 text-6xl">2025</p>
+    <p class="mt-20 text-6xl dark:text-gray-300">2025</p>
   </div>
 
 
@@ -93,44 +110,44 @@
     <div id="polygon-decorations" class="pointer-events-none fixed top-0 left-0 w-full h-full z-[-1] overflow-hidden"></div>
 
     <script>
-    const container = document.getElementById('polygon-decorations');
+      const container = document.getElementById('polygon-decorations');
 
-    const colors = ['#cbd5e1', '#94a3b8', '#64748b', '#475569']; // Tailwind slate palette
-    const shapes = ['triangle', 'hexagon', 'parallelogram'];
-    const numPolygons = 50;
+      const colors = ['#cbd5e1', '#94a3b8', '#64748b', '#475569']; // Tailwind slate palette
+      const shapes = ['triangle', 'hexagon', 'parallelogram'];
+      const numPolygons = 50;
 
-    function createPolygon(shape, color, size, top, left, rotate) {
-        const div = document.createElement('div');
-        div.classList.add('absolute');
-        div.style.width = size + 'px';
-        div.style.height = size + 'px';
-        div.style.top = top + '%';
-        div.style.left = left + '%';
-        div.style.transform = `rotate(${rotate}deg)`;
-        div.style.backgroundColor = color;
-        div.style.opacity = '0.08';
-        
-        if (shape === 'triangle') {
-        div.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
-        } else if (shape === 'hexagon') {
-        div.style.clipPath = 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)';
-        } else if (shape === 'parallelogram') {
-        div.style.clipPath = 'polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)';
-        }
+      function createPolygon(shape, color, size, top, left, rotate) {
+          const div = document.createElement('div');
+          div.classList.add('absolute');
+          div.style.width = size + 'px';
+          div.style.height = size + 'px';
+          div.style.top = top + '%';
+          div.style.left = left + '%';
+          div.style.transform = `rotate(${rotate}deg)`;
+          div.style.backgroundColor = color;
+          div.style.opacity = '0.08';
+          
+          if (shape === 'triangle') {
+          div.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+          } else if (shape === 'hexagon') {
+          div.style.clipPath = 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)';
+          } else if (shape === 'parallelogram') {
+          div.style.clipPath = 'polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)';
+          }
 
-        container.appendChild(div);
-    }
+          container.appendChild(div);
+      }
 
-    for (let i = 0; i < numPolygons; i++) {
-        const shape = shapes[Math.floor(Math.random() * shapes.length)];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const size = Math.random() * 100 + 30; // between 30px - 130px
-        const top = Math.random() * 100;
-        const left = Math.random() * 100;
-        const rotate = Math.random() * 360;
+      for (let i = 0; i < numPolygons; i++) {
+          const shape = shapes[Math.floor(Math.random() * shapes.length)];
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          const size = Math.random() * 100 + 30; // between 30px - 130px
+          const top = Math.random() * 100;
+          const left = Math.random() * 100;
+          const rotate = Math.random() * 360;
 
-        createPolygon(shape, color, size, top, left, rotate);
-    }
+          createPolygon(shape, color, size, top, left, rotate);
+      }
     </script>
 
 </body>
